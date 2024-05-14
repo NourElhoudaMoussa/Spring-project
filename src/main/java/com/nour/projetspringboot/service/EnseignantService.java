@@ -11,4 +11,5 @@ public interface EnseignantService {
     List<Enseignant> readEnseignant();
     Enseignant updateEnseignant(Long id,Enseignant enseignant);
     String DeleteEnseignant(Long id);
+    Enseignant getEnseignantById(Long id);
 }

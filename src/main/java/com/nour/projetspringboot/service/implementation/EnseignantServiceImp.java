@@ -34,6 +34,12 @@ public class EnseignantServiceImp implements EnseignantService {
                     return enseignantRepository.save(ens);
                 }).orElseThrow(()->new RuntimeException("Enseignant non trouvé!!"));
     }
+    @Override
+    public Enseignant getEnseignantById(Long id) {
+        return enseignantRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Enseignant non trouvé!!"));
+    }
+
 
     @Override
     public String DeleteEnseignant(Long id){

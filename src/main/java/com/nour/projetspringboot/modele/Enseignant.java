@@ -1,5 +1,6 @@
 package com.nour.projetspringboot.modele;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -31,6 +32,9 @@ public class Enseignant {
     @NotNull
     @Column(length = 8)
     private String tel;
+    @JsonIgnore
     @OneToMany(mappedBy = "enseignant", fetch =FetchType.EAGER)
     private List<Formation> formations=new ArrayList<>();
+
+
 }

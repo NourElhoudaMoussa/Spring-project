@@ -1,5 +1,6 @@
 package com.nour.projetspringboot.service.implementation;
 
+import com.nour.projetspringboot.modele.Enseignant;
 import com.nour.projetspringboot.modele.Etudiant;
 import com.nour.projetspringboot.repository.EtudiantRepository;
 import com.nour.projetspringboot.service.EtudiantService;
@@ -33,7 +34,11 @@ public class EtudiantServiceImp implements EtudiantService {
                     return etudiantRepository.save(e);
         }).orElseThrow(()->new RuntimeException("Etudiant non trouvé!!"));
     }
-
+    @Override
+    public Etudiant getEtudiantById(Long id) {
+        return etudiantRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Etudiant non trouvé!!"));
+    }
     @Override
     public String DeleteEtudiant(Long id) {
         etudiantRepository.deleteById(id);

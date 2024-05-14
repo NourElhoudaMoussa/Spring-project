@@ -1,5 +1,6 @@
 package com.nour.projetspringboot.service.implementation;
 
+import com.nour.projetspringboot.modele.Etudiant;
 import com.nour.projetspringboot.modele.Formation;
 import com.nour.projetspringboot.repository.FormtionRepository;
 import com.nour.projetspringboot.service.FormationService;
@@ -34,6 +35,11 @@ public class FormationServiceImp implements FormationService {
                     return formtionRepository.save(f);
                 }).orElseThrow(()->new RuntimeException("Formation non trouvé!!"));
 
+    }
+    @Override
+    public Formation getFormationById(Long id) {
+        return formtionRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Formation non trouvé!!"));
     }
 
     @Override
